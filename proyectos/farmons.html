@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,294 +10,313 @@
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-font-family:Arial,sans-serif;
-background:#08090d;
-color:#fff;
-line-height:1.7;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#08080d;
+    color:#f5f5f5;
+    line-height:1.7;
 }
 
 a{
-color:inherit;
-text-decoration:none;
+    color:inherit;
+    text-decoration:none;
 }
 
-.container{
-width:min(1100px,90%);
-margin:auto;
+:root{
+    --purple:#8b5cf6;
+    --cyan:#22d3ee;
+    --muted:#9999a6;
+    --card:#111119;
+    --border:rgba(255,255,255,.09);
 }
-
-/* NAV */
 
 nav{
-position:fixed;
-top:0;
-width:100%;
-z-index:100;
-background:rgba(8,9,13,.85);
-backdrop-filter:blur(15px);
-border-bottom:1px solid #222;
+    position:fixed;
+    top:0;
+    width:100%;
+    height:70px;
+    background:rgba(8,8,13,.85);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
+    z-index:10;
 }
 
 .nav{
-height:70px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+    max-width:1100px;
+    height:100%;
+    margin:auto;
+    padding:0 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
 .logo{
-font-weight:bold;
-font-size:1.2rem;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.logo span{
+    color:var(--purple);
 }
 
 .back{
-color:#aaa;
-font-size:.9rem;
+    color:#aaa;
+    font-size:14px;
 }
 
-/* HERO */
+.back:hover{
+    color:white;
+}
 
 .hero{
-min-height:90vh;
-display:flex;
-align-items:center;
-background:
-radial-gradient(circle at 50% 40%,rgba(124,58,237,.25),transparent 40%),
-#08090d;
+    min-height:80vh;
+    padding:150px 25px 80px;
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    align-items:center;
 }
 
 .hero-content{
-max-width:800px;
-padding-top:70px;
+    max-width:800px;
 }
 
 .label{
-color:#a78bfa;
-text-transform:uppercase;
-letter-spacing:3px;
-font-size:.75rem;
-font-weight:bold;
+    color:var(--purple);
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:15px;
 }
 
 h1{
-font-size:clamp(4rem,10vw,8rem);
-line-height:.9;
-margin:20px 0;
-letter-spacing:-5px;
+    font-size:clamp(55px,9vw,100px);
+    line-height:.9;
+    letter-spacing:-5px;
+    margin-bottom:30px;
 }
 
-.subtitle{
-font-size:1.4rem;
-color:#aaa;
-max-width:700px;
+.gradient{
+    background:linear-gradient(90deg,#fff,#a78bfa,#22d3ee);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:#aaa;
+    font-size:20px;
+    max-width:700px;
 }
 
 .tags{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin-top:30px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:30px;
 }
 
 .tag{
-padding:8px 14px;
-border-radius:50px;
-background:#15151d;
-border:1px solid #292934;
-color:#bbb;
-font-size:.8rem;
+    background:#171721;
+    border:1px solid var(--border);
+    padding:7px 12px;
+    border-radius:7px;
+    color:#aaa;
+    font-size:12px;
 }
-
-/* CONTENT */
 
 section{
-padding:100px 0;
+    max-width:1100px;
+    margin:auto;
+    padding:100px 25px;
 }
 
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
+.section-title{
+    font-size:45px;
+    margin-bottom:20px;
 }
 
-.section-label{
-color:#8b5cf6;
-font-size:.75rem;
-letter-spacing:3px;
-text-transform:uppercase;
-font-weight:bold;
-margin-bottom:15px;
+.section-text{
+    color:var(--muted);
+    max-width:750px;
 }
 
-h2{
-font-size:2.5rem;
-margin-bottom:20px;
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:40px;
 }
 
-p{
-color:#aaa;
-margin-bottom:18px;
+.info{
+    padding:25px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:15px;
 }
 
-/* LOOP */
+.info small{
+    display:block;
+    color:#777;
+    margin-bottom:8px;
+}
+
+.info strong{
+    font-size:17px;
+}
 
 .loop{
-display:grid;
-grid-template-columns:repeat(6,1fr);
-gap:10px;
-margin-top:40px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:40px;
 }
 
 .loop-item{
-padding:25px 10px;
-text-align:center;
-background:#111218;
-border:1px solid #252631;
-border-radius:12px;
-font-size:.8rem;
+    padding:18px 20px;
+    background:#12121b;
+    border:1px solid var(--border);
+    border-radius:10px;
 }
 
-.loop-item span{
-display:block;
-font-size:2rem;
-margin-bottom:10px;
+.arrow{
+    color:var(--purple);
 }
-
-/* CARDS */
 
 .cards{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:18px;
-margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:40px;
 }
 
 .card{
-padding:28px;
-background:#111218;
-border:1px solid #252631;
-border-radius:18px;
-}
-
-.card-icon{
-font-size:2rem;
-margin-bottom:15px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:28px;
 }
 
 .card h3{
-margin-bottom:10px;
+    margin-bottom:10px;
 }
 
 .card p{
-font-size:.9rem;
+    color:#999;
+    font-size:14px;
 }
 
-/* INFO */
-
-.info{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
-margin-top:40px;
+.challenge{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-top:40px;
 }
 
-.info-box{
-padding:25px;
-background:#111218;
-border-radius:15px;
-border:1px solid #252631;
+.challenge-box{
+    padding:30px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
 }
 
-.info-box small{
-display:block;
-color:#666;
-margin-bottom:8px;
+.challenge-box h3{
+    margin-bottom:12px;
 }
 
-.info-box strong{
-font-size:1.1rem;
+.challenge-box p{
+    color:#999;
 }
-
-/* GALLERY */
 
 .gallery{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
-margin-top:40px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-top:40px;
 }
 
-.image{
-height:200px;
-border-radius:15px;
-background:
-linear-gradient(135deg,#171722,#0d0e13);
-border:1px solid #292934;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:3rem;
+.gallery-item{
+    min-height:300px;
+    border-radius:18px;
+    border:1px solid var(--border);
+    overflow:hidden;
+    background:
+        radial-gradient(circle,rgba(139,92,246,.2),transparent 60%),
+        #0d0d14;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:70px;
 }
 
-/* FOOTER */
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.cta{
+    text-align:center;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 22px;
+    background:linear-gradient(135deg,var(--purple),#6d28d9);
+    border-radius:10px;
+    font-weight:bold;
+}
 
 footer{
-padding:40px 0;
-border-top:1px solid #222;
-color:#666;
+    border-top:1px solid var(--border);
+    text-align:center;
+    color:#666;
+    padding:30px;
 }
 
-@media(max-width:800px){
+@media(max-width:750px){
 
-.grid{
-grid-template-columns:1fr;
-}
+    .info-grid,
+    .cards,
+    .challenge,
+    .gallery{
+        grid-template-columns:1fr;
+    }
 
-.cards{
-grid-template-columns:1fr;
-}
-
-.loop{
-grid-template-columns:repeat(2,1fr);
-}
-
-.info{
-grid-template-columns:1fr;
-}
-
-.gallery{
-grid-template-columns:1fr;
-}
-
-h1{
-letter-spacing:-2px;
-}
+    h1{
+        letter-spacing:-3px;
+    }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
 <nav>
 
-<div class="container nav">
+<div class="nav">
 
-<a href="../index.html" class="logo">JESÚS.</a>
+<a href="../index.html" class="logo">
+Jesús<span>.</span>
+</a>
 
-<a href="../index.html#proyectos" class="back">
-← Volver al portafolio
+<a href="../index.html" class="back">
+← Volver al portfolio
 </a>
 
 </div>
@@ -306,24 +326,31 @@ letter-spacing:-2px;
 
 <header class="hero">
 
-<div class="container hero-content">
+<div class="hero-content">
 
-<span class="label">Proyecto de videojuego · En desarrollo</span>
+<div class="label">
+Game Project · 01
+</div>
 
-<h1>FARMONS</h1>
+<h1>
+<span class="gradient">Farmons</span>
+</h1>
 
-<p class="subtitle">
-Explora dungeons. Derrota criaturas. Construye tu granja.
-Cría criaturas mágicas y conviértete en un legendario criador.
+<p>
+RPG de acción cooperativo que combina exploración
+de dungeons, combate, agricultura, crianza y colección
+de criaturas.
 </p>
 
 <div class="tags">
-<span class="tag">RPG de Acción</span>
-<span class="tag">Cooperativo</span>
-<span class="tag">Dungeon Crawler</span>
-<span class="tag">Farm Management</span>
-<span class="tag">Creature Collecting</span>
+
+<span class="tag">RPG</span>
 <span class="tag">2D</span>
+<span class="tag">Co-op</span>
+<span class="tag">Dungeon Crawler</span>
+<span class="tag">Godot</span>
+<span class="tag">Game Design</span>
+
 </div>
 
 </div>
@@ -333,215 +360,170 @@ Cría criaturas mágicas y conviértete en un legendario criador.
 
 <section>
 
-<div class="container">
+<div class="label">
+Overview
+</div>
 
-<div class="grid">
+<h2 class="section-title">
+La idea
+</h2>
 
-<div>
+<p class="section-text">
 
-<div class="section-label">01 — Concepto</div>
+Farmons nace de combinar dos experiencias:
+la exploración y combate de un dungeon crawler
+con la progresión tranquila de una granja.
 
-<h2>Una granja llena de criaturas.</h2>
+El jugador interpreta a un aventurero retirado
+que decide comenzar una nueva vida criando
+las criaturas que encuentra durante sus expediciones.
 
-<p>
-Farmons es un RPG de acción cooperativo que combina
-exploración de dungeons, combate, gestión de granja,
-crianza de criaturas y coleccionismo.
 </p>
 
-<p>
-El jugador comienza como un aventurero retirado que
-decide iniciar una nueva vida construyendo una granja.
-Sin embargo, las criaturas encontradas en los dungeons
-se convierten en el corazón de su nuevo negocio.
-</p>
 
-</div>
-
-<div>
-
-<div class="section-label">02 — Fantasía del jugador</div>
-
-<h2>Explorar. Conseguir. Criar.</h2>
-
-<p>
-La idea principal es crear una experiencia donde el
-jugador sienta que cada expedición puede descubrir
-una criatura nueva y especial.
-</p>
-
-<p>
-La granja funciona como el lugar donde el jugador
-puede cuidar, criar y desarrollar las criaturas
-conseguidas durante sus aventuras.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section>
-
-<div class="container">
-
-<div class="section-label">03 — Gameplay Loop</div>
-
-<h2>El ciclo principal</h2>
-
-<div class="loop">
-
-<div class="loop-item">
-<span>🌾</span>
-Granja
-</div>
-
-<div class="loop-item">
-<span>⚔️</span>
-Dungeon
-</div>
-
-<div class="loop-item">
-<span>👾</span>
-Combate
-</div>
-
-<div class="loop-item">
-<span>👑</span>
-Guardián
-</div>
-
-<div class="loop-item">
-<span>🐉</span>
-Criatura
-</div>
-
-<div class="loop-item">
-<span>⬆️</span>
-Progresión
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section>
-
-<div class="container">
-
-<div class="section-label">04 — Mecánicas</div>
-
-<h2>Sistemas principales</h2>
-
-<div class="cards">
-
-<div class="card">
-<div class="card-icon">⚔️</div>
-<h3>Combate</h3>
-<p>
-Combate de acción en escenarios 2D laterales
-contra enemigos y guardianes de dungeon.
-</p>
-</div>
-
-<div class="card">
-<div class="card-icon">🏰</div>
-<h3>Dungeons</h3>
-<p>
-Exploración lineal con enemigos, obstáculos,
-recompensas y un miniboss al final.
-</p>
-</div>
-
-<div class="card">
-<div class="card-icon">🐲</div>
-<h3>Criaturas</h3>
-<p>
-Cada dungeon está asociado con criaturas que
-el jugador puede obtener y desarrollar.
-</p>
-</div>
-
-<div class="card">
-<div class="card-icon">⭐</div>
-<h3>Rareza</h3>
-<p>
-Las criaturas poseen diferentes niveles de
-rareza y posibilidades de aparición.
-</p>
-</div>
-
-<div class="card">
-<div class="card-icon">🌱</div>
-<h3>Granja</h3>
-<p>
-Expandir instalaciones, cuidar criaturas y
-convertir la granja en el centro de operaciones.
-</p>
-</div>
-
-<div class="card">
-<div class="card-icon">📈</div>
-<h3>Progresión</h3>
-<p>
-Los enemigos proporcionan experiencia y permiten
-subir de nivel y mejorar al personaje.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section>
-
-<div class="container">
-
-<div class="section-label">05 — Información</div>
-
-<h2>Ficha del proyecto</h2>
+<div class="info-grid">
 
 <div class="info">
-
-<div class="info-box">
 <small>Género</small>
-<strong>RPG de Acción Cooperativo</strong>
+<strong>Action RPG</strong>
 </div>
 
-<div class="info-box">
+<div class="info">
 <small>Plataforma</small>
 <strong>PC · Steam</strong>
 </div>
 
-<div class="info-box">
-<small>Estilo</small>
+<div class="info">
+<small>Dirección</small>
 <strong>2D Side View</strong>
 </div>
 
-<div class="info-box">
-<small>Motor</small>
-<strong>Godot</strong>
 </div>
 
-<div class="info-box">
-<small>Rol</small>
-<strong>Game Designer · Developer</strong>
+</section>
+
+
+<section>
+
+<div class="label">
+Gameplay Loop
 </div>
 
-<div class="info-box">
-<small>Estado</small>
-<strong>Prototipo</strong>
+<h2 class="section-title">
+El ciclo principal
+</h2>
+
+<p class="section-text">
+La progresión está diseñada alrededor de un ciclo
+donde cada actividad alimenta a la siguiente.
+</p>
+
+
+<div class="loop">
+
+<div class="loop-item">🌱 Granja</div>
+<div class="arrow">→</div>
+
+<div class="loop-item">🗺️ Dungeon</div>
+<div class="arrow">→</div>
+
+<div class="loop-item">⚔️ Combate</div>
+<div class="arrow">→</div>
+
+<div class="loop-item">👹 Guardián</div>
+<div class="arrow">→</div>
+
+<div class="loop-item">🐉 Criatura</div>
+<div class="arrow">→</div>
+
+<div class="loop-item">📈 Progresión</div>
+
 </div>
+
+</section>
+
+
+<section>
+
+<div class="label">
+Game Systems
+</div>
+
+<h2 class="section-title">
+Sistemas de juego
+</h2>
+
+
+<div class="cards">
+
+<div class="card">
+
+<h3>⚔️ Combate</h3>
+
+<p>
+Combate lateral contra enemigos con diferentes
+patrones, ataques y niveles de dificultad.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>🗺️ Dungeons</h3>
+
+<p>
+Niveles principalmente horizontales con enemigos,
+obstáculos y un enfrentamiento final.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>🐉 Criaturas</h3>
+
+<p>
+Las criaturas obtenidas pueden convertirse
+en parte de la progresión del jugador.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>💎 Rareza</h3>
+
+<p>
+Las criaturas poseen diferentes niveles de rareza,
+creando una motivación para volver a explorar.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>🌱 Granja</h3>
+
+<p>
+La granja funciona como centro de operaciones
+y espacio de progresión.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>📈 Experiencia</h3>
+
+<p>
+Los enemigos proporcionan experiencia que permite
+mejorar progresivamente al jugador.
+</p>
 
 </div>
 
@@ -552,37 +534,118 @@ subir de nivel y mejorar al personaje.
 
 <section>
 
-<div class="container">
-
-<div class="section-label">06 — Galería</div>
-
-<h2>Desarrollo visual</h2>
-
-<div class="gallery">
-
-<div class="image">🎮</div>
-<div class="image">🏰</div>
-<div class="image">🐉</div>
-
+<div class="label">
+Design Thinking
 </div>
 
-<p style="margin-top:20px;color:#666;">
-Aquí podrás colocar posteriormente capturas reales,
-concept art, prototipos o videos del proyecto.
+<h2 class="section-title">
+Decisiones de diseño
+</h2>
+
+
+<div class="challenge">
+
+<div class="challenge-box">
+
+<h3>
+El desafío
+</h3>
+
+<p>
+¿Cómo combinar la sensación de peligro de una
+exploración de dungeon con la progresión relajada
+de una granja sin que una parte eclipse a la otra?
 </p>
 
 </div>
+
+
+<div class="challenge-box">
+
+<h3>
+La solución de diseño
+</h3>
+
+<p>
+Crear un ciclo donde explorar genera recursos y
+criaturas, mientras que la granja funciona como
+espacio de preparación y progresión para la siguiente
+expedición.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="label">
+Prototype
+</div>
+
+<h2 class="section-title">
+Prototipo
+</h2>
+
+<p class="section-text">
+Esta sección puede utilizarse posteriormente para
+mostrar capturas, GIFs o videos del prototipo desarrollado
+en Godot.
+</p>
+
+
+<div class="gallery">
+
+<div class="gallery-item">
+
+<img
+src="../assets/farmons-gameplay.png"
+alt="Gameplay Farmons"
+onerror="this.style.display='none'"
+>
+
+<span>🎮</span>
+
+</div>
+
+
+<div class="gallery-item">
+⚔️
+</div>
+
+</div>
+
+</section>
+
+
+<section class="cta">
+
+<div class="label">
+Farmons
+</div>
+
+<h2 class="section-title">
+Diseñar. Prototipar. Iterar.
+</h2>
+
+<p class="section-text" style="margin:auto;">
+Farmons continúa evolucionando como proyecto
+de aprendizaje y experimentación.
+</p>
+
+<a href="../index.html" class="btn">
+← Volver al portfolio
+</a>
 
 </section>
 
 
 <footer>
 
-<div class="container">
-
-<a href="../index.html">← Volver al portafolio</a>
-
-</div>
+© 2026 Jesús Rivera · Farmons
 
 </footer>
 
