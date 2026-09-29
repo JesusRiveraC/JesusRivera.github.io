@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jesús Rivera | Game Designer & Developer</title>
+
+    <meta name="description" content="Portafolio personal de Jesús Rivera, diseñador y desarrollador de videojuegos.">
+
+    <style>
+
+        /* =========================
+           CONFIGURACIÓN GENERAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --background: #070914;
+            --background-light: #0d1020;
+            --card: rgba(18, 22, 42, 0.75);
+            --primary: #7c5cff;
+            --secondary: #00d9ff;
+            --pink: #ff4ecd;
+            --text: #ffffff;
+            --text-secondary: #aeb4ca;
+            --border: rgba(255,255,255,0.08);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================
+           FONDO
+        ========================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            z-index: -10;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(124,92,255,0.16), transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(0,217,255,0.12), transparent 30%),
+                var(--background);
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.25;
+            animation: floating 10s ease-in-out infinite;
+        }
+
+        .orb1 {
+            width: 350px;
+            height: 350px;
+            background: var(--primary);
+            top: 5%;
+            left: -100px;
+        }
+
+        .orb2 {
+            width: 300px;
+            height: 300px;
+            background: var(--secondary);
+            right: -100px;
+            top: 45%;
+            animation-delay: 2s;
+        }
+
+        .orb3 {
+            width: 250px;
+            height: 250px;
+            background: var(--pink);
+            left: 40%;
+            bottom: -100px;
+            animation-delay: 4s;
+        }
+
+        @keyframes floating {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-40px);
+            }
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+
+            background: rgba(7,9,20,0.65);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: var(--text-secondary);
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        nav ul li a:hover {
+            color: white;
+        }
+
+        .menu-button {
+            display: none;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            padding: 150px 7% 100px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 30px;
+
+            background: rgba(124,92,255,0.12);
+            border: 1px solid rgba(124,92,255,0.3);
+
+            color: #c5baff;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(50px, 7vw, 90px);
+            line-height: 0.95;
+            margin-bottom: 25px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                90deg,
+                var(--primary),
+                var(--secondary),
+                var(--pink)
+            );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 18px;
+            line-height: 1.7;
+            max-width: 650px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(
+                90deg,
+                var(--primary),
+                #5d9dff
+            );
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* =========================
+           GAME CARD HERO
+        ========================= */
+
+        .hero-card {
+            width: 360px;
+            height: 450px;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(124,92,255,0.3),
+                    rgba(0,217,255,0.08)
+                );
+
+            border: 1px solid var(--border);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+            overflow: hidden;
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.4);
+        }
+
+        .controller {
+            font-size: 130px;
+            animation: controllerFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes controllerFloat {
+            0%,100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        .hero-card::before {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: var(--secondary);
+            filter: blur(80px);
+            opacity: 0.25;
+        }
+
+        /* =========================
+           SECCIONES
+        ========================= */
+
+        section {
+            padding: 110px 7%;
+        }
+
+        .section-title {
+            margin-bottom: 60px;
+        }
+
+        .section-title small {
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .section-title h2 {
+            font-size: 45px;
+            margin-top: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+            margin-top: 15px;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-box {
+            padding: 35px;
+            border-radius: 20px;
+
+            background: var(--card);
+            border: 1px solid var(--border);
+
+            backdrop-filter: blur(15px);
+        }
+
+        .about-box h3 {
+            margin-bottom: 20px;
+        }
+
+        .about-box ul {
+            list-style: none;
+        }
+
+        .about-box li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .about-box li:last-child {
+            border-bottom: none;
+        }
+
+        /* =========================
+           PROYECTOS
+        ========================= */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.4s;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            border-color: rgba(124,92,255,0.5);
+        }
+
+        .project-image {
+            height: 220px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 70px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(124,92,255,0.35),
+                    rgba(0,0,0,0.2)
+                );
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tags span {
+            padding: 6px 10px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            font-size: 11px;
+            color: #c5c9d8;
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+        }
+
+        .skill {
+            padding: 30px;
+            border-radius: 18px;
+
+            background: var(--card);
+            border: 1px solid var(--border);
+
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-7px);
+            background: rgba(124,92,255,0.12);
+        }
+
+        .skill-icon {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .skill h3 {
+            margin-bottom: 10px;
+        }
+
+        .skill p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* =========================
+           PROCESO
+        ========================= */
+
+        .process {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+        }
+
+        .process-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .number {
+            width: 55px;
+            height: 55px;
+
+            margin: 0 auto 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary)
+            );
+
+            font-weight: bold;
+        }
+
+        .process-card p {
+            color: var(--text-secondary);
+            margin-top: 10px;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        /* =========================
+           CONTACTO
+        ========================= */
+
+        .contact {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .contact h2 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social {
+            padding: 12px 20px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-secondary);
+            transition: 0.3s;
+        }
+
+        .social:hover {
+            color: white;
+            background: rgba(255,255,255,0.05);
+            transform: translateY(-4px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 30px 7%;
+            border-top: 1px solid var(--border);
+
+            display: flex;
+            justify-content: space-between;
+
+            color: #70758c;
+            font-size: 13px;
+        }
+
+        /* =========================
+           ANIMACIONES SCROLL
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width: 900px) {
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 130px;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .hero-card {
+                width: 300px;
+                height: 350px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .projects {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .skills {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .process {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width: 650px) {
+
+            nav ul {
+                display: none;
+
+                position: absolute;
+                top: 70px;
+                left: 0;
+
+                width: 100%;
+
+                background: rgba(7,9,20,0.95);
+
+                flex-direction: column;
+                align-items: center;
+
+                padding: 25px;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .section-title h2 {
+                font-size: 35px;
+            }
+
+            .projects,
+            .skills,
+            .process {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="background">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+    </div>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav>
+
+        <div class="logo">
+            JESÚS<span>.DEV</span>
+        </div>
+
+        <div class="menu-button" id="menuButton">
+            ☰
+        </div>
+
+        <ul id="menu">
+
+            <li>
+                <a href="#inicio">Inicio</a>
+            </li>
+
+            <li>
+                <a href="#sobre-mi">Sobre mí</a>
+            </li>
+
+            <li>
+                <a href="#proyectos">Proyectos</a>
+            </li>
+
+            <li>
+                <a href="#habilidades">Habilidades</a>
+            </li>
+
+            <li>
+                <a href="#contacto">Contacto</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-content reveal">
+
+            <span class="tag">
+                🎮 GAME DESIGNER & DEVELOPER
+            </span>
+
+            <h1>
+                Creo mundos.
+                <br>
+                <span class="gradient-text">
+                    Diseño experiencias.
+                </span>
+            </h1>
+
+            <p>
+                Soy Jesús Rivera, diseñador y desarrollador de videojuegos.
+                Me interesa transformar ideas en experiencias interactivas,
+                combinando diseño, programación, narrativa y creatividad.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#proyectos" class="btn btn-primary">
+                    Ver mis proyectos
+                </a>
+
+                <a href="#contacto" class="btn btn-secondary">
+                    Contactarme
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-card reveal">
+
+            <div class="controller">
+                🎮
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SOBRE MI
+    ========================== -->
+
+    <section id="sobre-mi">
+
+        <div class="section-title reveal">
+
+            <small>01 — SOBRE MÍ</small>
+
+            <h2>
+                Más que jugar,
+                <span class="gradient-text">
+                    quiero crear.
+                </span>
+            </h2>
+
+        </div>
+
+
+        <div class="about">
+
+            <div class="about-text reveal">
+
+                <p>
+                    Desde pequeño me han interesado los videojuegos,
+                    pero con el tiempo mi curiosidad pasó de preguntarme
+                    "¿cómo se juega?" a preguntarme "¿cómo se hizo?".
+                </p>
+
+                <p>
+                    Actualmente desarrollo mis propios conceptos de videojuegos,
+                    trabajando en diseño de mecánicas, sistemas de progresión,
+                    narrativa, prototipado y desarrollo.
+                </p>
+
+                <p>
+                    Mi objetivo es crear juegos que no solamente sean divertidos,
+                    sino que también tengan una identidad propia y una experiencia
+                    memorable para el jugador.
+                </p>
+
+            </div>
+
+
+            <div class="about-box reveal">
+
+                <h3>
+                    ¿Qué hago?
+                </h3>
+
+                <ul>
+
+                    <li>
+                        🎮 Diseño de videojuegos
+                    </li>
+
+                    <li>
+                        💻 Desarrollo y programación
+                    </li>
+
+                    <li>
+                        🧠 Diseño de mecánicas
+                    </li>
+
+                    <li>
+                        📖 Diseño de sistemas y narrativa
+                    </li>
+
+                    <li>
+                        🧩 Prototipado de ideas
+                    </li>
+
+                    <li>
+                        🎨 Dirección de conceptos visuales
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROYECTOS
+    ========================== -->
+
+    <section id="proyectos">
+
+        <div class="section-title reveal">
+
+            <small>02 — PROYECTOS</small>
+
+            <h2>
+                Ideas que se
+                <span class="gradient-text">
+                    convierten en juegos.
+                </span>
+            </h2>
+
+            <p>
+                Algunos de mis conceptos y proyectos de videojuegos.
+            </p>
+
+        </div>
+
+
+        <div class="projects">
+
+
+            <div class="project reveal">
+
+                <div class="project-image">
+                    🍕
+                </div>
+
+                <div class="project-content">
+
+                    <h3>
+                        Sabor del Perú
+                    </h3>
+
+                    <p>
+                        Juego de gestión inspirado en los simuladores
+                        de cocina, donde el jugador recorre diferentes
+                        regiones del Perú preparando platos tradicionales.
+                    </p>
+
+                    <div class="tags">
+
+                        <span>
+                            Game Design
+                        </span>
+
+                        <span>
+                            Management
+                        </span>
+
+                        <span>
+                            Cocina
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="project reveal">
+
+                <div class="project-image">
+                    🐲
+                </div>
+
+                <div class="project-content">
+
+                    <h3>
+                        Farmons
+                    </h3>
+
+                    <p>
+                        RPG cooperativo donde los jugadores exploran
+                        dungeons, derrotan criaturas, las capturan y
+                        construyen una granja dedicada a su crianza.
+                    </p>
+
+                    <div class="tags">
+
+                        <span>
+                            RPG
+                        </span>
+
+                        <span>
+                            Co-op
+                        </span>
+
+                        <span>
+                            Dungeon
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="project reveal">
+
+                <div class="project-image">
+                    🐜
+                </div>
+
+                <div class="project-content">
+
+                    <h3>
+                        Ant's Revenge
+                    </h3>
+
+                    <p>
+                        Aventura 2D donde una pequeña hormiga emprende
+                        un viaje para recuperar su colonia después de
+                        que los humanos destruyen su hogar.
+                    </p>
+
+                    <div class="tags">
+
+                        <span>
+                            2D
+                        </span>
+
+                        <span>
+                            Pixel Art
+                        </span>
+
+                        <span>
+                            Adventure
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HABILIDADES
+    ========================== -->
+
+    <section id="habilidades">
+
+        <div class="section-title reveal">
+
+            <small>03 — HABILIDADES</small>
+
+            <h2>
+                Herramientas para
+                <span class="gradient-text">
+                    crear juegos.
+                </span>
+            </h2>
+
+        </div>
+
+
+        <div class="skills">
+
+
+            <div class="skill reveal">
+
+                <div class="skill-icon">
+                    🎮
+                </div>
+
+                <h3>
+                    Game Design
+                </h3>
+
+                <p>
+                    Diseño de mecánicas, loops de gameplay,
+                    progresión, economía y experiencias para el jugador.
+                </p>
+
+            </div>
+
+
+            <div class="skill reveal">
+
+                <div class="skill-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Desarrollo
+                </h3>
+
+                <p>
+                    Creación de prototipos y sistemas utilizando
+                    herramientas de desarrollo de videojuegos.
+                </p>
+
+            </div>
+
+
+            <div class="skill reveal">
+
+                <div class="skill-icon">
+                    🧠
+                </div>
+
+                <h3>
+                    Diseño de sistemas
+                </h3>
+
+                <p>
+                    Diseño de progresión, economía, habilidades,
+                    enemigos, recompensas y sistemas interactivos.
+                </p>
+
+            </div>
+
+
+            <div class="skill reveal">
+
+                <div class="skill-icon">
+                    🎨
+                </div>
+
+                <h3>
+                    Dirección creativa
+                </h3>
+
+                <p>
+                    Conceptualización de mundos, estilos visuales,
+                    personajes y dirección artística.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROCESO
+    ========================== -->
+
+    <section>
+
+        <div class="section-title reveal">
+
+            <small>04 — MI PROCESO</small>
+
+            <h2>
+                De una idea a
+                <span class="gradient-text">
+                    un videojuego.
+                </span>
+            </h2>
+
+        </div>
+
+
+        <div class="process">
+
+
+            <div class="process-card reveal">
+
+                <div class="number">
+                    01
+                </div>
+
+                <h3>
+                    Idea
+                </h3>
+
+                <p>
+                    Defino el concepto, la experiencia
+                    y la identidad del juego.
+                </p>
+
+            </div>
+
+
+            <div class="process-card reveal">
+
+                <div class="number">
+                    02
+                </div>
+
+                <h3>
+                    Diseño
+                </h3>
+
+                <p>
+                    Desarrollo las mecánicas, sistemas,
+                    progresión y gameplay loop.
+                </p>
+
+            </div>
+
+
+            <div class="process-card reveal">
+
+                <div class="number">
+                    03
+                </div>
+
+                <h3>
+                    Prototipo
+                </h3>
+
+                <p>
+                    Transformo las ideas en una versión
+                    jugable para probarlas.
+                </p>
+
+            </div>
+
+
+            <div class="process-card reveal">
+
+                <div class="number">
+                    04
+                </div>
+
+                <h3>
+                    Iteración
+                </h3>
+
+                <p>
+                    Pruebo, analizo y mejoro el juego
+                    hasta encontrar una mejor experiencia.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACTO
+    ========================== -->
+
+    <section id="contacto">
+
+        <div class="contact reveal">
+
+            <h2>
+                ¿Creamos algo
+                <span class="gradient-text">
+                    increíble?
+                </span>
+            </h2>
+
+            <p>
+                Estoy interesado en desarrollar proyectos,
+                colaborar con otros creadores y seguir aprendiendo
+                dentro de la industria de los videojuegos.
+            </p>
+
+
+            <div class="socials">
+
+                <a href="#" class="social">
+                    GitHub
+                </a>
+
+                <a href="#" class="social">
+                    LinkedIn
+                </a>
+
+                <a href="#" class="social">
+                    Itch.io
+                </a>
+
+                <a href="mailto:tuemail@gmail.com" class="social">
+                    Email
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <span>
+            © 2026 Jesús Rivera
+        </span>
+
+        <span>
+            Game Designer & Developer
+        </span>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* =========================
+           MENÚ MOBILE
+        ========================== */
+
+        const menuButton = document.getElementById("menuButton");
+        const menu = document.getElementById("menu");
+
+        menuButton.addEventListener("click", () => {
+
+            menu.classList.toggle("active");
+
+        });
+
+
+        /* =========================
+           CERRAR MENÚ AL HACER CLICK
+        ========================== */
+
+        document.querySelectorAll("#menu a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                menu.classList.remove("active");
+
+            });
+
+        });
+
+
+        /* =========================
+           ANIMACIONES AL HACER SCROLL
+        ========================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("active");
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+        revealElements.forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+
+        /* =========================
+           EFECTO PARALLAX SUAVE
+        ========================== */
+
+        document.addEventListener("mousemove", (event) => {
+
+            const x =
+                (event.clientX / window.innerWidth - 0.5) * 20;
+
+            const y =
+                (event.clientY / window.innerHeight - 0.5) * 20;
+
+            const card =
+                document.querySelector(".hero-card");
+
+            if (card) {
+
+                card.style.transform =
+                    `translate(${x}px, ${y}px)`;
+
+            }
+
+        });
+
+
+        /* =========================
+           TEXTO DINÁMICO
+        ========================== */
+
+        const phrases = [
+            "Game Designer",
+            "Game Developer",
+            "Creative Designer",
+            "Game Creator"
+        ];
+
+        let phraseIndex = 0;
+
+        setInterval(() => {
+
+            phraseIndex++;
+
+            if (phraseIndex >= phrases.length) {
+
+                phraseIndex = 0;
+
+            }
+
+        }, 3000);
+
+    </script>
+
+</body>
+</html>
