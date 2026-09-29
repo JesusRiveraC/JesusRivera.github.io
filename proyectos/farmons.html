@@ -1,1 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Farmons | Jesús Rivera</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#08090d;
+color:#fff;
+line-height:1.7;
+}
+
+a{
+color:inherit;
+text-decoration:none;
+}
+
+.container{
+width:min(1100px,90%);
+margin:auto;
+}
+
+/* NAV */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+z-index:100;
+background:rgba(8,9,13,.85);
+backdrop-filter:blur(15px);
+border-bottom:1px solid #222;
+}
+
+.nav{
+height:70px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-weight:bold;
+font-size:1.2rem;
+}
+
+.back{
+color:#aaa;
+font-size:.9rem;
+}
+
+/* HERO */
+
+.hero{
+min-height:90vh;
+display:flex;
+align-items:center;
+background:
+radial-gradient(circle at 50% 40%,rgba(124,58,237,.25),transparent 40%),
+#08090d;
+}
+
+.hero-content{
+max-width:800px;
+padding-top:70px;
+}
+
+.label{
+color:#a78bfa;
+text-transform:uppercase;
+letter-spacing:3px;
+font-size:.75rem;
+font-weight:bold;
+}
+
+h1{
+font-size:clamp(4rem,10vw,8rem);
+line-height:.9;
+margin:20px 0;
+letter-spacing:-5px;
+}
+
+.subtitle{
+font-size:1.4rem;
+color:#aaa;
+max-width:700px;
+}
+
+.tags{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.tag{
+padding:8px 14px;
+border-radius:50px;
+background:#15151d;
+border:1px solid #292934;
+color:#bbb;
+font-size:.8rem;
+}
+
+/* CONTENT */
+
+section{
+padding:100px 0;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+}
+
+.section-label{
+color:#8b5cf6;
+font-size:.75rem;
+letter-spacing:3px;
+text-transform:uppercase;
+font-weight:bold;
+margin-bottom:15px;
+}
+
+h2{
+font-size:2.5rem;
+margin-bottom:20px;
+}
+
+p{
+color:#aaa;
+margin-bottom:18px;
+}
+
+/* LOOP */
+
+.loop{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:10px;
+margin-top:40px;
+}
+
+.loop-item{
+padding:25px 10px;
+text-align:center;
+background:#111218;
+border:1px solid #252631;
+border-radius:12px;
+font-size:.8rem;
+}
+
+.loop-item span{
+display:block;
+font-size:2rem;
+margin-bottom:10px;
+}
+
+/* CARDS */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+margin-top:40px;
+}
+
+.card{
+padding:28px;
+background:#111218;
+border:1px solid #252631;
+border-radius:18px;
+}
+
+.card-icon{
+font-size:2rem;
+margin-bottom:15px;
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+.card p{
+font-size:.9rem;
+}
+
+/* INFO */
+
+.info{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-top:40px;
+}
+
+.info-box{
+padding:25px;
+background:#111218;
+border-radius:15px;
+border:1px solid #252631;
+}
+
+.info-box small{
+display:block;
+color:#666;
+margin-bottom:8px;
+}
+
+.info-box strong{
+font-size:1.1rem;
+}
+
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-top:40px;
+}
+
+.image{
+height:200px;
+border-radius:15px;
+background:
+linear-gradient(135deg,#171722,#0d0e13);
+border:1px solid #292934;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:3rem;
+}
+
+/* FOOTER */
+
+footer{
+padding:40px 0;
+border-top:1px solid #222;
+color:#666;
+}
+
+@media(max-width:800px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.loop{
+grid-template-columns:repeat(2,1fr);
+}
+
+.info{
+grid-template-columns:1fr;
+}
+
+.gallery{
+grid-template-columns:1fr;
+}
+
+h1{
+letter-spacing:-2px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="container nav">
+
+<a href="../index.html" class="logo">JESÚS.</a>
+
+<a href="../index.html#proyectos" class="back">
+← Volver al portafolio
+</a>
+
+</div>
+
+</nav>
+
+
+<header class="hero">
+
+<div class="container hero-content">
+
+<span class="label">Proyecto de videojuego · En desarrollo</span>
+
+<h1>FARMONS</h1>
+
+<p class="subtitle">
+Explora dungeons. Derrota criaturas. Construye tu granja.
+Cría criaturas mágicas y conviértete en un legendario criador.
+</p>
+
+<div class="tags">
+<span class="tag">RPG de Acción</span>
+<span class="tag">Cooperativo</span>
+<span class="tag">Dungeon Crawler</span>
+<span class="tag">Farm Management</span>
+<span class="tag">Creature Collecting</span>
+<span class="tag">2D</span>
+</div>
+
+</div>
+
+</header>
+
+
+<section>
+
+<div class="container">
+
+<div class="grid">
+
+<div>
+
+<div class="section-label">01 — Concepto</div>
+
+<h2>Una granja llena de criaturas.</h2>
+
+<p>
+Farmons es un RPG de acción cooperativo que combina
+exploración de dungeons, combate, gestión de granja,
+crianza de criaturas y coleccionismo.
+</p>
+
+<p>
+El jugador comienza como un aventurero retirado que
+decide iniciar una nueva vida construyendo una granja.
+Sin embargo, las criaturas encontradas en los dungeons
+se convierten en el corazón de su nuevo negocio.
+</p>
+
+</div>
+
+<div>
+
+<div class="section-label">02 — Fantasía del jugador</div>
+
+<h2>Explorar. Conseguir. Criar.</h2>
+
+<p>
+La idea principal es crear una experiencia donde el
+jugador sienta que cada expedición puede descubrir
+una criatura nueva y especial.
+</p>
+
+<p>
+La granja funciona como el lugar donde el jugador
+puede cuidar, criar y desarrollar las criaturas
+conseguidas durante sus aventuras.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="section-label">03 — Gameplay Loop</div>
+
+<h2>El ciclo principal</h2>
+
+<div class="loop">
+
+<div class="loop-item">
+<span>🌾</span>
+Granja
+</div>
+
+<div class="loop-item">
+<span>⚔️</span>
+Dungeon
+</div>
+
+<div class="loop-item">
+<span>👾</span>
+Combate
+</div>
+
+<div class="loop-item">
+<span>👑</span>
+Guardián
+</div>
+
+<div class="loop-item">
+<span>🐉</span>
+Criatura
+</div>
+
+<div class="loop-item">
+<span>⬆️</span>
+Progresión
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="section-label">04 — Mecánicas</div>
+
+<h2>Sistemas principales</h2>
+
+<div class="cards">
+
+<div class="card">
+<div class="card-icon">⚔️</div>
+<h3>Combate</h3>
+<p>
+Combate de acción en escenarios 2D laterales
+contra enemigos y guardianes de dungeon.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">🏰</div>
+<h3>Dungeons</h3>
+<p>
+Exploración lineal con enemigos, obstáculos,
+recompensas y un miniboss al final.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">🐲</div>
+<h3>Criaturas</h3>
+<p>
+Cada dungeon está asociado con criaturas que
+el jugador puede obtener y desarrollar.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">⭐</div>
+<h3>Rareza</h3>
+<p>
+Las criaturas poseen diferentes niveles de
+rareza y posibilidades de aparición.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">🌱</div>
+<h3>Granja</h3>
+<p>
+Expandir instalaciones, cuidar criaturas y
+convertir la granja en el centro de operaciones.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">📈</div>
+<h3>Progresión</h3>
+<p>
+Los enemigos proporcionan experiencia y permiten
+subir de nivel y mejorar al personaje.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="section-label">05 — Información</div>
+
+<h2>Ficha del proyecto</h2>
+
+<div class="info">
+
+<div class="info-box">
+<small>Género</small>
+<strong>RPG de Acción Cooperativo</strong>
+</div>
+
+<div class="info-box">
+<small>Plataforma</small>
+<strong>PC · Steam</strong>
+</div>
+
+<div class="info-box">
+<small>Estilo</small>
+<strong>2D Side View</strong>
+</div>
+
+<div class="info-box">
+<small>Motor</small>
+<strong>Godot</strong>
+</div>
+
+<div class="info-box">
+<small>Rol</small>
+<strong>Game Designer · Developer</strong>
+</div>
+
+<div class="info-box">
+<small>Estado</small>
+<strong>Prototipo</strong>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="section-label">06 — Galería</div>
+
+<h2>Desarrollo visual</h2>
+
+<div class="gallery">
+
+<div class="image">🎮</div>
+<div class="image">🏰</div>
+<div class="image">🐉</div>
+
+</div>
+
+<p style="margin-top:20px;color:#666;">
+Aquí podrás colocar posteriormente capturas reales,
+concept art, prototipos o videos del proyecto.
+</p>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="container">
+
+<a href="../index.html">← Volver al portafolio</a>
+
+</div>
+
+</footer>
+
+</body>
+</html>
