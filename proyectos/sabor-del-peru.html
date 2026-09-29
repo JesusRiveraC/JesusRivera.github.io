@@ -1,1 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sabor del Perú | Jesús Rivera</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#090909;
+color:white;
+line-height:1.7;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+.container{
+width:min(1100px,90%);
+margin:auto;
+}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(9,9,9,.85);
+backdrop-filter:blur(15px);
+border-bottom:1px solid #252525;
+z-index:100;
+}
+
+.nav{
+height:70px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-weight:bold;
+}
+
+.back{
+color:#aaa;
+}
+
+.hero{
+min-height:90vh;
+display:flex;
+align-items:center;
+background:
+radial-gradient(circle at 70% 40%,rgba(234,88,12,.2),transparent 40%),
+#090909;
+}
+
+.hero-content{
+padding-top:70px;
+max-width:850px;
+}
+
+.label{
+color:#fb923c;
+font-size:.75rem;
+letter-spacing:3px;
+text-transform:uppercase;
+font-weight:bold;
+}
+
+h1{
+font-size:clamp(3.5rem,9vw,7rem);
+line-height:.9;
+letter-spacing:-4px;
+margin:20px 0;
+}
+
+.subtitle{
+font-size:1.3rem;
+color:#aaa;
+max-width:700px;
+}
+
+.tags{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:30px;
+}
+
+.tag{
+background:#171717;
+border:1px solid #303030;
+padding:8px 14px;
+border-radius:50px;
+font-size:.8rem;
+color:#bbb;
+}
+
+section{
+padding:100px 0;
+}
+
+.section-label{
+color:#fb923c;
+font-size:.75rem;
+letter-spacing:3px;
+text-transform:uppercase;
+font-weight:bold;
+margin-bottom:15px;
+}
+
+h2{
+font-size:2.6rem;
+margin-bottom:20px;
+}
+
+p{
+color:#aaa;
+margin-bottom:18px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:70px;
+}
+
+.loop{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:10px;
+margin-top:40px;
+}
+
+.loop-item{
+background:#151515;
+border:1px solid #282828;
+padding:20px 8px;
+border-radius:12px;
+text-align:center;
+font-size:.8rem;
+}
+
+.loop-item span{
+display:block;
+font-size:2rem;
+margin-bottom:8px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+margin-top:40px;
+}
+
+.card{
+padding:28px;
+border-radius:18px;
+background:#141414;
+border:1px solid #292929;
+}
+
+.card-icon{
+font-size:2rem;
+margin-bottom:15px;
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+.card p{
+font-size:.9rem;
+}
+
+.regions{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+margin-top:40px;
+}
+
+.region{
+height:170px;
+border-radius:18px;
+background:linear-gradient(145deg,#191919,#101010);
+border:1px solid #292929;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+font-size:1.1rem;
+}
+
+.region span{
+font-size:3rem;
+margin-bottom:10px;
+}
+
+.info{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-top:40px;
+}
+
+.info-box{
+background:#141414;
+padding:25px;
+border-radius:15px;
+border:1px solid #292929;
+}
+
+.info-box small{
+display:block;
+color:#666;
+margin-bottom:7px;
+}
+
+footer{
+border-top:1px solid #222;
+padding:40px 0;
+color:#666;
+}
+
+@media(max-width:800px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.loop{
+grid-template-columns:repeat(2,1fr);
+}
+
+.regions{
+grid-template-columns:repeat(2,1fr);
+}
+
+.info{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="container nav">
+
+<a href="../index.html" class="logo">JESÚS.</a>
+
+<a href="../index.html#proyectos" class="back">
+← Volver al portafolio
+</a>
+
+</div>
+
+</nav>
+
+
+<header class="hero">
+
+<div class="container hero-content">
+
+<span class="label">Proyecto de videojuego · Concepto</span>
+
+<h1>SABOR<br>DEL PERÚ</h1>
+
+<p class="subtitle">
+Una aventura gastronómica por el Perú donde cocinar
+es solo el comienzo.
+</p>
+
+<div class="tags">
+
+<span class="tag">Gestión</span>
+<span class="tag">Cocina</span>
+<span class="tag">Simulación</span>
+<span class="tag">Cultura Peruana</span>
+<span class="tag">PC</span>
+
+</div>
+
+</div>
+
+</header>
+
+
+<section>
+
+<div class="container grid">
+
+<div>
+
+<div class="section-label">01 — Concepto</div>
+
+<h2>Un restaurante. Todo el Perú.</h2>
+
+<p>
+Sabor del Perú es un juego inspirado en el concepto
+de los juegos de gestión gastronómica.
+</p>
+
+<p>
+En lugar de centrarse en una única comida, el jugador
+puede viajar por diferentes ciudades y provincias del
+Perú para descubrir ingredientes, platos y tradiciones.
+</p>
+
+</div>
+
+<div>
+
+<div class="section-label">02 — Objetivo</div>
+
+<h2>Descubrir el sabor de cada región.</h2>
+
+<p>
+Cada zona del país posee ingredientes y platos
+característicos que pueden convertirse en nuevas
+posibilidades de gameplay.
+</p>
+
+<p>
+El jugador deberá atender clientes, preparar pedidos,
+administrar recursos y mejorar progresivamente
+su negocio.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="section-label">03 — Gameplay Loop</div>
+
+<h2>El ciclo de juego</h2>
+
+<div class="loop">
+
+<div class="loop-item">
+<span>🗺️</span>
+Elegir región
+</div>
+
+<div class="loop-item">
+<span>📋</span>
+Recibir pedido
+</div>
+
+<div class="loop-item">
+<span>🥘</span>
+Preparar
+</div>
+
+<div class="loop-item">
+<span>😋</span>
+Servir
+</div>
+
+<div class="loop-item">
+<span>💰</span>
+Ganar
+</div>
+
+<div class="loop-item">
+<span>⬆️</span>
+Mejorar
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="section-label">04 — Mecánicas</div>
+
+<h2>Diseño del juego</h2>
+
+<div class="cards">
+
+<div class="card">
+<div class="card-icon">🍳</div>
+<h3>Cocina</h3>
+<p>
+Preparar diferentes platos siguiendo procesos
+y pedidos de los clientes.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">👨‍🍳</div>
+<h3>Gestión</h3>
+<p>
+Administrar ingredientes, dinero, tiempo
+y capacidad del restaurante.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">🗺️</div>
+<h3>Exploración</h3>
+<p>
+Desbloquear nuevas ciudades y provincias
+con nuevos ingredientes y platos.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">⭐</div>
+<h3>Reputación</h3>
+<p>
+La satisfacción de los clientes influye
+en el crecimiento del negocio.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">🛍️</div>
+<h3>Mejoras</h3>
+<p>
+Comprar nuevos equipos y mejorar
+el restaurante.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">📚</div>
+<h3>Colección</h3>
+<p>
+Registrar platos, ingredientes y
+descubrimientos en un catálogo.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="section-label">05 — Mundo</div>
+
+<h2>Un viaje gastronómico</h2>
+
+<div class="regions">
+
+<div class="region">
+<span>🏔️</span>
+Andes
+</div>
+
+<div class="region">
+<span>🌊</span>
+Costa
+</div>
+
+<div class="region">
+<span>🌳</span>
+Amazonía
+</div>
+
+<div class="region">
+<span>🇵🇪</span>
+Nuevas regiones
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="section-label">06 — Información</div>
+
+<h2>Ficha del proyecto</h2>
+
+<div class="info">
+
+<div class="info-box">
+<small>Género</small>
+<strong>Gestión · Cocina</strong>
+</div>
+
+<div class="info-box">
+<small>Plataforma</small>
+<strong>PC · Steam</strong>
+</div>
+
+<div class="info-box">
+<small>Público</small>
+<strong>+13</strong>
+</div>
+
+<div class="info-box">
+<small>Inspiración</small>
+<strong>Good Pizza, Great Pizza</strong>
+</div>
+
+<div class="info-box">
+<small>Ambientación</small>
+<strong>Perú</strong>
+</div>
+
+<div class="info-box">
+<small>Estado</small>
+<strong>Concepto / GDD</strong>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="container">
+
+<a href="../index.html">← Volver al portafolio</a>
+
+</div>
+
+</footer>
+
+</body>
+</html>
